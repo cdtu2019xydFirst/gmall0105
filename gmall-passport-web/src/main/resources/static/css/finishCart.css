@@ -1,0 +1,58 @@
+*{
+				margin: 0;
+				padding: 0;
+			}
+			.warp{
+				width: 1346px;
+				height: 176px;
+				
+				margin:0 auto;
+			}
+			.cartPro{
+				width: 1346px;
+				height: 145px;
+				background:#e4e4e4;
+				
+				margin: 0 auto;
+			}
+			.dec{
+				display: block;
+				width: 190px;
+				height: 28px;
+				color: #9ca135;
+				line-height: 28px;
+				margin-left: 100px;
+				padding-top: 20px;
+				
+			}
+			.lec{
+				float: left;
+				width: 62px;
+				height: 62px;
+				margin-left: 100px;
+				margin-top: 20px;
+			}
+			.lec_name{				
+				float: left;
+				margin-left: 20px;
+				margin-top: 20px;
+			}
+			.lec_des{
+				float: left;
+				margin-left: -320px;
+				margin-top: 50px;
+			}
+			.shop_des{
+				width: 156px;
+				height: 35px;				
+				margin-top: 53px;
+				margin-left: 810px;
+			}
+			.shop_cart{
+				width: 156px;
+				height: 35px;
+				background: red;
+				margin-top: -35px;
+				margin-left: 990px;
+			}
+			

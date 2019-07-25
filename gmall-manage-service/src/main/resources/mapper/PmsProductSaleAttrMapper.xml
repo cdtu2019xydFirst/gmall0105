@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.gmall.manage.mapper.PmsProductSaleAttrMapper">
+    <!--时多重集合将resultType 改为 resultMap-->
+     <select id="selectSpuSaleAttrListCheckBySku" resultMap="selectSpuSaleAttrListCheckBySkuMap">
+         /* inner join 会返回左右两表到交集（相当于 逗号连接的表连接
+         select * from TableA,TableB where TableA.id=TableB.id）*/
+         /*left join 会返回左表到全部数据，右表没有数据时用null填补
+           right join 会返回右表到全部数据，左表没有数据时用null填补*/
+         /* 1. left join, right join, full join 操作时，会生成一个临时表
+            2. on 是生成临时表的条件， 一个表中如果没有对应数据用null填补*/
+         /*IF(ssav.sku_id,1,0) AS isChecked
+           如果sku_id有值就对其赋值"1"  ,  否则（null）赋值"0". 并且把sku_id换成isChecked*/
+         SELECT sa.id as sa_id , sav.id as sav_id , sa.* , sav.*,IF(ssav.sku_id,1,0) AS isChecked
+         FROM pms_product_sale_attr sa
+         INNER JOIN pms_product_sale_attr_value sav ON sa.product_id = sav.product_id
+         AND sa.sale_attr_id = sav.sale_attr_id
+         AND sa.product_id = #{productId}
+         LEFT JOIN pms_sku_sale_attr_value ssav ON sav.id = ssav.sale_attr_value_id
+         AND ssav.sku_id = #{skuId}
+     </select>
+
+    <resultMap id="selectSpuSaleAttrListCheckBySkuMap" type="com.atguigu.gmall.bean.PmsProductSaleAttr" autoMapping="true">
+        <result column="sa_id" property="id"></result>
+        <collection property="pmsProductSaleAttrValueList" ofType="com.atguigu.gmall.bean.PmsProductSaleAttrValue" autoMapping="true">
+            <result column="sav_id" property="id"></result>
+        </collection>
+    </resultMap>
+
+</mapper>

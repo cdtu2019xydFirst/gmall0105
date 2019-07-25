@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-theme.css"/>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/ie10-viewport-bug-workaround.css"/>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/jumbotron-narrow.css"/>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/detail.css"/>
+	<script type="text/javascript" src="/bootstrap/js/jquery.min.js"></script>
+	<title>首页</title>
+</head>
+<body style="text-align:center;">
+<h1><span style="color: #ce8483">东方商城首页</span></h1>
+<a th:href="'http://localhost:8084/cartList'"><span style="color: #FB0000">去购物车</span></a>
+<br>
+<a th:href="'http://localhost:8086/toTrade?token='+${token}"><span style="color: #FB0000">去结算</span></a><hr>
+
+<button id="submitButton" class="tijiao"><span style="color: blue">商品列表</span></button><hr>
+
+<form action="./list.html" method="post" id="searchForm">
+	<input type="text" height="20px" width="200px" border="4px" th:text="搜索"/>
+</form>
+<br>
+<img src="/images/fengjing.jpg">
+
+<script>
+
+    $(function () {
+        $("#submitButton").click(function () {
+            $("#searchForm").submit();
+        })
+    })
+</script>
+
+</body>
+
+</html>

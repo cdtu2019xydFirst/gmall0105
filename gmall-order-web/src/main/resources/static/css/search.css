@@ -1,0 +1,52 @@
+#list_beas{
+			background: red;
+		}
+		.list_span{
+			display: inline-block;
+			width: 70px;
+			height:25px ;
+			background: #eae8e8;
+			margin-top: 3px;
+			text-align: center;
+			line-height: 25px;
+			margin-left: 3px;
+		}
+		
+
+.filter{
+			width: 1210px;
+			height: 50px;		
+			margin: 20px auto 0;
+			
+			/*display: none;*/
+			
+		}
+		.filter h2{
+			float: left;
+			display: inline-block;
+			height: 50px;
+			line-height: 50px;
+			color: #c81623;
+		}
+		.gt{
+			float: left;
+			height: 50px;
+			line-height: 50px;
+		}
+		.filter_div{
+			float: left;			
+			height: 24px;
+			border: 1px solid #dddddd;
+			display: inline-block;
+			margin-top: 13px;
+			margin-left: 5px;
+			color: #666666;
+		}
+		.filter_clear{
+			float: left;			
+			height: 24px;
+			display: inline-block;
+			margin-top: 13px;
+			margin-left: 5px;
+			color: #666666;
+		}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>东方商城商品详情</title>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/ie10-viewport-bug-workaround.css"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/jumbotron-narrow.css"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/detail.css"/>
+
+</head>
+<body>
+<input style="width:600px;height: 40px" type="hidden" th:value="${skuSaleAttrHashJsonStr}" id="valueSku"/>
+<h3>
+    <span th:text="'库存名称：'+${skuName}" th:each="skuName:${skuInfo.skuName}"></span><br>
+    <span th:text="'库存价格：'+${Price}" th:each="Price:${skuInfo.Price}"></span><br>
+    <span th:text="'库存描述：'+${skuDesc}" th:each="skuDesc:${skuInfo.skuDesc}"></span><br>
+    <span th:text="'库存重量：'+${weight}" th:each="weight:${skuInfo.weight}"></span><br>
+</h3>
+<img height="200px" src="/images/huawei1.jpg" class="img-thumbnail">
+<div style="margin:4px;float:left;" th:each="spuSaleAttr:${skuSaleAttrListCheckBySku}">
+    <dl>
+        <dt style="color: #C29C9C;" th:text="${spuSaleAttr.saleAttrName}"></dt>
+        <!--(${saleAttrValue.isChecked}=='1'?'redborder':'')-->
+        <dd th:class="redborder"
+            th:style="'width:auto;border-style:solid;border-width:3px;margin: 10px 0 10px;'+(${saleAttrValue.isChecked}=='1'?'border-color:red;background:#8c8c8c':'')"
+            th:each="saleAttrValue:${spuSaleAttr.pmsProductSaleAttrValueList}">
+            <div style="width:auto;" th:value="${saleAttrValue.id}" th:text="${saleAttrValue.saleAttrValueName}"></div>
+        </dd>
+    </dl>
+</div>
+
+<button type="submit" id="btn" onclick="btn()">skuSaleAttrHashJsonStr</button>
+
+<script src="/js/jquery-1.7.2.min.js" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript">
+
+    function btn() {
+        var skuSaleAttrValueJsonStr = $("#valueSku").val();
+        alert(skuSaleAttrValueJsonStr)
+        /*获取saleAttrValueId 的集合*/
+        var saleAttrValueIds = $(".redborder div");
+        /*循环该集合*/
+        var hashKey = "";
+        $(saleAttrValueIds).each(function (i, saleAttrValueId) {
+            hashKey = hashKey + $(saleAttrValueId).attr("value") + "|";
+        });
+        alert(hashKey);
+        var skuSaleAttrValueJson = JSON.parse(skuSaleAttrValueJsonStr);
+        var v_skuId = skuSaleAttrValueJson[hashKey];
+        alert(v_skuId)
+        /*模拟skuId = 3*/
+        var skuId = 3;
+        /*window.location.href = "http://item.gmall.com/" +v_skuId+".html"*/
+        window.location.href = "http://item.gmall.com/" + skuId + ".html"
+
+    }
+
+</script>
+
+</body>
+</html>

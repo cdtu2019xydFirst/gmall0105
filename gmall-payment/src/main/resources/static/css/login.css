@@ -1,0 +1,160 @@
+.up{
+	width:80%;
+	height:45px;
+	margin:0 auto 0 auto;
+}
+
+.middle{
+	width:100%;
+	height:475px;
+	background-color:#e93854;
+	/*#9c6def,#e93854,#fffc23*/
+}
+.down{
+	width:80%;
+	height:45px;
+	margin:0 auto 0 auto;	
+}
+.border{
+	border-style:dashed;
+	border-color:red;	
+}
+.login{
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:20px;
+	padding-right:20px;
+	margin-top:40px;
+	margin-bottom:80px;
+	margin-right:10%;
+	background-color:white;
+	width:24%;
+	height:335px;
+	float:right;
+}
+.l1{
+	width:100%;
+	height:30px;
+}
+.l1_font_01{
+	float:left;
+	font-size:20px;
+	color:#666;
+}
+.l1_font_02{
+	margin-top:5px;
+	float:right;
+	font-size:15px;
+	color:red;
+	text-decoration: none;
+}
+.red_button{
+	padding-top:5px;
+	width:100%;
+	height:35px;
+	font-size:20px;
+	color:white;
+	text-align:center;
+	background-color:#e85356;
+	
+}
+.aline{
+	text-decoration:none;
+}
+.ts{
+	background: #fff6d2;
+	color: #666;
+	border: 1px solid #ffe57d;
+	padding: 3px 10px 3px 40px;
+	line-height: 18px;
+	height: 18px;
+}
+.input1{
+	border: 1px solid #bdbdbd;
+	height: 38px;
+	width: 100%-1px;
+	background-image:url(../images/tx.png);
+	background-repeat:no-repeat;
+
+}
+.input1_01{
+	width:80%;
+	float:right;
+	margin-top:8px;
+	border:0px;
+	outline-style:none;
+	
+}
+
+.input2{
+	border: 1px solid #bdbdbd;
+	height: 38px;
+	width: 100%-1px;
+	background-image:url(../images/s.png);
+	background-repeat:no-repeat;
+}
+.blank_01{
+	height:10px;
+	clear:both;
+}
+
+.down{
+	text-align:center;
+	font-size:10px;
+	color:#666;
+}
+.box_01{
+	width:100%;
+	height:24px;
+}
+.box_01_both{
+	margin:2px 0 auto 0 ;
+	width:90%;
+	float:right;
+}
+.box_01_both_1{
+	float:left;
+	color:#666;
+	font-size:10px;
+}
+.box_01_both_2{
+	float:right;
+	color:#666;
+	font-size:10px;
+}
+.box_01_box{
+	margin-left:0px;
+	float:left;
+}
+.box_down{
+   font-size:10px;
+   color:#666;
+}
+.hy_img{
+	float:left
+}
+.hy{
+	font-family:微软雅黑;
+	font-weight:border;
+	font-size:18px;
+	margin:9px 0px auto 20px;
+	float:left;
+	color:#666;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

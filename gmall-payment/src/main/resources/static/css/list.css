@@ -1,0 +1,77 @@
+*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			.list{
+				width: 900px;
+				height: 500px;
+				margin: 0 auto;
+				background: #F5F5F5;
+			}
+			.list_left{
+				width:150px;
+				height:500px ;
+				border-right:1px solid #D2CFCF;
+				float: left;
+			}
+			.myList{
+				width:150px;
+				text-align: center;
+			}
+			.list_right{
+				float: left;
+				padding-top: 10px;
+			}
+			.product{
+				width: 747px;
+				height:100px;
+				background: white;
+				border: 1px solid #b1adad;
+			
+			}
+			.lec{
+				position: relative;
+				width: 300px;
+				height: 100px;
+				border-right: 1px solid #b1adad;
+				float: left;
+			}
+			.lec img{
+				position: absolute;
+				top:18px;
+				left:12px;
+			}
+			.lec_name{
+				position: absolute;
+				top:18px;
+				left: 84px;
+			}
+			.lec_des{
+				position: absolute;
+				top:60px;
+				left: 84px;
+			}
+			.pro_name{
+				float: left;
+				width: 100px;
+				height: 100px;
+				border-right: 1px solid #b1adad;
+				text-align: center;
+				line-height: 100px;
+			}
+			.pro_deit{
+				float: left;
+				width: 100px;
+				height: 100px;
+				border-right: 1px solid #b1adad;
+				text-align: center;
+				line-height: 100px;
+			}
+			.pro_fin{
+				height: 100px;
+				text-align: center;
+				line-height: 100px;
+			}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-theme.css"/>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/ie10-viewport-bug-workaround.css"/>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/jumbotron-narrow.css"/>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/detail.css"/>
+	<script type="text/javascript" src="/bootstrap/js/jquery.min.js"></script>
+	<title>首页</title>
+</head>
+<body style="text-align:center;">
+搜索列表页
+<hr>
+<div class="top-3">
+	<ul>
+		<li class="skuLsInfoList" th:each="skuLsInfoList:${skuLsInfoList}">
+			<input name="skuId" type="radio" th:value="${skuLsInfoList.id}" onclick="changeSkuId()"/>
+			<span  style="color: #ce8483" th:text="${skuLsInfoList.skuName}+${skuLsInfoList.skuDesc}+${skuLsInfoList.price}+${skuLsInfoList.productId}"></span><br>
+			<input name="goToItem" type="radio" th:value="${skuLsInfoList.id}" onclick="changeGoToItem()"/><span style="font-size: 10px">点圈去详情</span>
+		</li>
+	</ul>
+</div>
+
+<form action="" method="get">
+	<input name="a" id="a" type="hidden"/>
+	<input name="b" type="text" th:text="数量"/>
+	<input type="button" class="btn btn-info" value="加入购物车" onClick="tpformsubmit()">
+</form>
+
+<script>
+    function changeSkuId(){/*属性选择器*/
+        var skuId = $("input[name='skuId']:checked").val();
+        /*赋值*/
+		alert(skuId);
+        $("#a").val(skuId);
+    }
+
+    function tpformsubmit(){
+        var skuId = $('input[name=a]').val();
+        var quantity = $('input[name=b]').val();
+        url = "http://localhost:8084/addToCart?skuId="+skuId+"&quantity="+quantity;
+        window.location.href = url;
+    }
+
+    /*http://item.gmall.com/2.html*/
+	function changeGoToItem() {
+		var Item = $("input[name='goToItem']:checked").val();
+        url = "http://item.gmall.com/"+Item+".html";
+        window.location.href = url;
+    }
+</script>
+
+</body>
+</html>

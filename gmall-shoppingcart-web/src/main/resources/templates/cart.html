@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-theme.css"/>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/ie10-viewport-bug-workaround.css"/>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/jumbotron-narrow.css"/>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/detail.css"/>
+	<script type="text/javascript" src="/bootstrap/js/jquery.min.js"></script>
+	<title>CartList</title>
+
+</head>
+<body style="text-align:center;">
+<h1><span style="color: #e4b9b9" th:text="'您好：'+${nickname}"></span></h1>
+<img height="80px" src="/images/dlrb.jpg">
+<h2 style="color: #f6c090">这是您的购物车</h2>
+
+<div class="top-3">
+	<ul>
+		<li class="cartList" th:each="cartList:${cartList}">
+			<input name="isChecked" type="radio" th:value="${cartList.isChecked}" onclick="isChecked()"/>
+			<span style="color: #f72d77" th:text="${cartList.productName}+${cartList.productSn}"></span><br>
+			<span style="color: red" th:text="'价格: ￥'+${cartList.price}+'元'"></span><br>
+			<span style="color: blue" th:text="'数量: '+${cartList.quantity}"></span><br>
+		</li>
+	</ul>
+</div>
+
+<div>
+	<span style="color: red" th:text="'总价格：￥'+${totalAmount}+'元'"></span>
+</div><br>
+
+<form action="" method="get">
+	<input name="a" id="a" type="hidden"/>
+	<input class="btn btn-success" type="button" value="去结算" onClick="tpformsubmit()">
+</form>
+
+<script>
+    function isChecked(){/*属性选择器*/
+        var isChecked = 1;
+        /*赋值*/
+        alert(isChecked);
+        $("#a").val(isChecked);
+    }
+    function tpformsubmit(){
+        url = "http://localhost:8086/toTrade";
+        window.location.href = url;
+    }
+</script>
+
+</body>
+</html>

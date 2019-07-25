@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/ie10-viewport-bug-workaround.css"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/jumbotron-narrow.css"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/detail.css"/>
+    <script type="text/javascript" src="/bootstrap/js/jquery.min.js"></script>
+    <title>支付</title>
+</head>
+<body style="text-align:center;">
+    欢迎来到支付页面<hr>
+    <img height="50px" src="/images/dlrb.jpg"><hr>
+    <h2><span style="color: #FB0000">您好：</span><span style="color: #dca7a7" th:text="${nickname}"></span></h2><hr>
+    <div>
+        <span>订单提交成功,请您尽快付款! 订单号: </span><span style="color: brown" th:text="${outTradeNumber}"></span><hr>
+        <span>您应付金额: </span><span style="color: red" th:text="'￥'+${totalAmount}+'元'"></span>
+    </div><hr>
+
+    <div class="">
+        <ul>
+            <li>
+                <span>
+                    <input name="a" type="radio" value="alipay"/>
+                    <img height="30px" src="/images/Alipay.png">支付宝
+                </span>
+            </li><br>
+            <li>
+                <span>
+                    <input name="a" type="radio" value="weixin"/>
+                    <img height="40px" src="/images/weixin.jpg">微信支付
+                </span>
+            </li>
+        </ul>
+        <button id="paymentButton">立即支付</button>
+    </div>
+
+    <form method="post" id="paymentForm">
+        <input type="hidden" name="totalAmount" th:value="${totalAmount}"/>
+        <input type="hidden" name="outTradeNumber" th:value="${outTradeNumber}"/>
+    </form>
+
+
+    <script>
+        $(function () {
+            $("#paymentButton").click(function () {
+                $("#paymentForm").attr("action","/"+$("input[type='radio']:checked").val()+"/submit");
+                $("#paymentForm").submit();
+            })
+        })
+    </script>
+
+</body>
+</html>

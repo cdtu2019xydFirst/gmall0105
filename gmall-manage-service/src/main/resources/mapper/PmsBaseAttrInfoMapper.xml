@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.gmall.manage.mapper.PmsBaseAttrInfoMapper">
+    <!--时多重集合将resultType 改为 resultMap-->
+     <select id="selectAttrValueListByValueId" resultMap="selectAttrValueListByValueIdMap">
+         SELECT ba.*,ba.id as ba_id,bv.*,bv.id as bv_id
+         FROM
+              pms_base_attr_info ba,
+              pms_base_attr_value bv
+         WHERE ba.id = bv.attr_id
+         AND   bv.id IN (${valueIdStr})
+     </select>
+    <!--这里用${}拼接字符，应为有多个id{1,9,18.。。。}，不能用#{}是赋值-->
+    <resultMap id="selectAttrValueListByValueIdMap" type="com.atguigu.gmall.bean.PmsBaseAttrInfo" autoMapping="true">
+        <result column="ba_id" property="id"></result>
+        <collection property="pmsBaseAttrValueList" ofType="com.atguigu.gmall.bean.PmsBaseAttrValue" autoMapping="true">
+            <result column="bv_id" property="id"></result>
+        </collection>
+    </resultMap>
+
+</mapper>

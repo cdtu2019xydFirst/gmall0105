@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>item</title>
+</head>
+<body>
+    hello thymeleaf!
+    <br >
+
+    <!-- 取值 -->
+    <!--普通的el表达式不行了-->
+    {hello}
+    <br >
+    <!--/*@thymesVar id="hello" type="java"*/-->
+    <p th:text="${hello}">默認值</p>
+
+    <!--循环-->
+    <!--/*@thymesVar id="list" type="java"*/-->
+    <p th:each="str:${list}" th:text="${str}"></p>
+
+    <!--判断-->
+    <p th:if="1==1">存在</p>
+    <!--checked默认选中-->
+    <input type="checkbox" checked>
+    <!--根据后台的值来确定复选框是否默认选中-->
+    <!--/*@thymesVar id="chk" type="java"*/-->
+    <input type="checkbox" th:checked="${chk}==1">
+
+    <!--传值给javascript-->
+    <!--第一个单引号：在th中使用js语言转义符号-->
+    <!--第二个单引号：注意：需要加转义字符\，js语言传递参数为字符串时需要加上这个单引号，当参数不是字符串时不用加-->
+    <!--第三个单引号：对应着第一个单引号，代表着thymeleaf中的js语言转义结束。同理第四个单引号与最后一个对应。-->
+    <!--加号代表连接或者拼接-->
+    <!--javascript:f(\' ， \'); -->
+    <a th:href="'javascript:f(\''+${hello}+'\');'">链接字符串</a>
+    <!--例如-->
+    <a href="javascript:f(123);">exp非字符</a>
+    <a href="javascript:f('bcd');">exp字符</a>
+
+    <!--页面引入-->
+    <!--引入全部页面资源-->
+    <div th:include="indexinner">页面</div>
+    <!--引入部分页面资源-->
+    <div th:fragment="indexinner::innerPart"></div>
+
+
+    <!--/*@thymesVar id="skuInfo" type="java"*/-->
+
+    <!--<div th:class="text" th:src="${skuInfo}"></div>-->
+
+
+
+<script language="JavaScript">
+    function f(hello) {
+        alert(hello)
+    }
+</script>
+    <script th:inline="javascript">
+        var message = [[${skuInfo}]];
+        console.log(message);
+    </script>
+
+
+
+
+</body>
+</html>

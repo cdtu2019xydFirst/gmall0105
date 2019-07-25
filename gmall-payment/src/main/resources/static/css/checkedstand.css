@@ -1,0 +1,41 @@
+        *{
+	margin: 0;
+	padding: 0;
+}
+.warp{
+	position: relative;
+	width: 1005px;
+	height: 340px;
+	
+	margin: 20px auto;
+	background: url(../images/shouyintai.gif) no-repeat;
+}
+.money{
+	position: absolute;
+	right: 67px;
+	top:137px;
+	width: 50px;
+	height: 30px;
+	color: red;				
+}
+.password{
+	position: absolute;
+	left:80px;
+	top:220px;
+	width: 230px;
+	height: 33px;
+}
+.pay{
+	position: absolute;
+	top: 270px;
+	left: 80px;
+	width:220px;
+	height: 50px;	
+	cursor:pointer;			
+}
+.pay_detail{
+	margin: 20px auto;
+	width: 1005px;
+	height: 60px;
+	color:#666;
+}

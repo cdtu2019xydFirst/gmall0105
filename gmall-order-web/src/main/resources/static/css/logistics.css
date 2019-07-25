@@ -1,0 +1,104 @@
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{background:#f2f2f2;font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+
+.stepInfo{position:relative;background:#f2f2f2;margin:20px auto 100px auto;width:500px;}
+.stepInfo li{float:left;width:48%;height:0.15em;background:#bbb;}
+.stepIco{border-radius:1em;padding:0.03em;background:#bbb;text-align:center;line-height:1.5em;color:#fff; position:absolute;width:1.4em;height:1.4em;}
+.stepIco1{top:-0.7em;left:-1%;}
+.stepIco2{top:-0.7em;left:21%;}
+.stepIco3{top:-0.7em;left:46%;}
+.stepIco4{top:-0.7em;left:71%;}
+.stepIco5{top:-0.7em;left:95%;}
+.stepText{color:#666;margin-top:0.2em;width:4em;text-align:center;margin-left:-1.4em;}
+
+.stepStyle{
+	background: #ef4d4d;
+}
+
+
+body{font-size: 12px;}
+ul li{list-style: none;}
+.track-rcol{width: 900px; border: 1px solid #eee;}
+.track-list{margin: 20px; padding-left: 5px; position: relative;}
+.track-list li{position: relative; padding: 9px 0 0 25px; line-height: 18px; border-left: 1px solid #d9d9d9; color: #999;}
+.track-list li.first{color: red; padding-top: 0; border-left-color: #fff;}
+.track-list li .node-icon{position: absolute; left: -6px; top: 50%; width: 11px; height: 11px; background: url(images/order-icons.png)  -21px -72px no-repeat;}
+.track-list li.first .node-icon{background-position:0 -72px;}
+.track-list li .time{margin-right: 20px; position: relative; top: 4px; display: inline-block; vertical-align: middle;}
+.track-list li .txt{max-width: 600px; position: relative; top: 4px; display: inline-block; vertical-align: middle;}
+.track-list li.first .time{margin-right: 20px; }
+.track-list li.first .txt{max-width: 600px; }
+
+
+.track-rcol{margin-left: 300px;}
+
+*{
+				margin: 0;
+				padding: 0;				
+			}
+			body{
+				background: #e9e4e4;
+			}
+			
+			.top{
+				width: 900px;
+				height: 220px;
+				background: white;
+				margin: 20px auto;
+			}
+			.top_left{
+				width: 200px;
+				height: 220px;
+				border-right:1px solid #cccbcb ;
+				float: left;
+			}
+			.btn01{
+				width: 100px;
+				height: 30px;
+				background: #F5F5F5;
+				margin-top: 60px;
+				margin-left: 50px;
+			}
+			.btn02{
+				width: 100px;
+				height: 30px;
+				color: red;
+				background: white;
+				border: 1px solid red;
+				margin-left: 50px;
+				margin-top: 20px;
+			}
+			.stepInfo{
+				float: left;
+				margin-left: 100px;
+				margin-top: 100px;
+			}
+			
+			
+			.bottom{
+				position: relative;
+				width: 900px;
+				height: 300px;
+				background: white;
+				margin: 0 auto;
+			}
+			.bottom_left{
+				width: 200px;
+				height: 300px;
+				border-right:1px solid #cccbcb ;
+				float: left;
+			}
+			.bottom_left img{
+				margin-top: 100px;
+				margin-left: 60px;
+			}
+			.track-rcol{
+				position: absolute;
+				left: -100px;
+				top: 0px;
+				width: 700px;
+				
+			}
+
+

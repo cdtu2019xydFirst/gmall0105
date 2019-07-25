@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/ie10-viewport-bug-workaround.css"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/jumbotron-narrow.css"/>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/detail.css"/>
+    <script type="text/javascript" src="/bootstrap/js/jquery.min.js"></script>
+    <title>结算</title>
+</head>
+<body style="text-align:center;">
+        <h1><span style="color: lightsalmon">东方商城订单结算</span></h1>
+        <div class="to_right">
+            <h4>商家：自营</h4><hr><img style="height: 100px" src="/images/dlrb.jpg"><hr><h4 style="color: orange" th:text="${sourceType}"></h4><hr><h5>您所选择的商品是：</h5>
+            <div class="yunl" th:each="omsOrderItem:${omsOrderItems}">
+                <div class="mi">
+                    <div>
+                        <p style="color: #005aa0" th:text="${omsOrderItem.productName}"></p>
+                        <p style="color: #005aa0" th:text="${omsOrderItem.orderSn}"></p>
+                        <span style=""> <span align="center"></span>
+                            <span th:text="'￥'+${omsOrderItem.ProductPrice}" style="color: red"></span>
+                            <span th:text="' @ 数量：'+${omsOrderItem.productQuantity}" style="color: blue"></span>
+                        </span><hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <span style="color: red" th:text="'总价：￥'+${totalAmount}+'元'"></span>
+        </div>
+
+    <!--地址-->
+    <div class="top-3">
+        <ul>
+            <li class=".address default selected" th:each="userAddress:${receiveAddress}">
+                <input name="deliveryAddress" type="radio" th:value="${userAddress.id}" th:checked="${userAddress.defaultStatus}=='1'" onclick="changeAddress()"/>
+                <span style="color: blue" th:text="${userAddress.name}+':收货地址'">收件人</span>
+                <span style="color: fuchsia" th:text="${userAddress.province}+${userAddress.city}+${userAddress.region}"></span>
+            </li>
+        </ul>
+    </div>
+
+    <button id="submitButton" class="tijiao">提交订单</button>
+
+    <form action="./submitOrder" method="post" id="orderForm">
+        <input name="receiveAddressId" id="receiveAddressId" type="hidden"/>
+        <input name="totalAmount" id="totalAmount" type="hidden" th:value="${totalAmount}"/>
+        <input name="tradeCode" type="hidden" th:value="${tradeCode}"/>
+    </form>
+
+    <script>
+        function changeAddress(){/*属性选择器*/
+            var receiveAddressId = $("input[name='deliveryAddress']:checked").val();
+            /*赋值*/
+            $("#receiveAddressId").val(receiveAddressId);
+        }
+
+        $(function () {
+            $("#submitButton").click(function () {
+                $("#consigree").val($("input[type='redio']:checked").next().text());
+                $("#deliveryAddress").val($("input[type='radio']:checked").next().next().text())
+                $("#orderForm").submit();
+            })
+        })
+    </script>
+
+</body>
+</html>
